@@ -4,9 +4,10 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
-import Education from './components/Education'
+import Education from './components/Tecnologies'
 import Contact from './components/Contact'
 import Lenis from "@studio-freight/lenis"
+import Tecnologies from "./components/Tecnologies"
 
 function App() {
   useEffect(() => {
@@ -35,7 +36,7 @@ function App() {
         <Hero />
         <About />
         <Experience />
-        <Education />
+        <Tecnologies />
         <Contact />
       </main>
     </div>

@@ -35,7 +35,7 @@ export default function Header() {
         <Nav>
           <NavLink href="#about" onClick={handleClick}>Sobre</NavLink>
           <NavLink href="#experience" onClick={handleClick}>Experiência</NavLink>
-          <NavLink href="#education" onClick={handleClick}>Educação</NavLink>
+          <NavLink href="#tecnologies" onClick={handleClick}>Tecnologias</NavLink>
           <NavLink href="#contact" onClick={handleClick}>Contato</NavLink>
         </Nav>
       </Content>
