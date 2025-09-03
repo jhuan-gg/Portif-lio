@@ -92,7 +92,8 @@ const StyledWrapper = styled.div`
 
   #prompt {
     bottom: 15%;
-    left: 50%;
+    animation: wiggle 1s ease-in-out infinite;
+    left: 15%;
     width:70%;
     height: 70%;
     transform: translateX(-50%);
@@ -106,6 +107,12 @@ const StyledWrapper = styled.div`
     color: rgba(255, 255, 255, 0.7);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
+    
+  @keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
 
   .title {
     opacity: 0;

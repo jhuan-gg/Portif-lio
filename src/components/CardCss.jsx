@@ -92,6 +92,7 @@ const StyledWrapper = styled.div`
 
   #prompt {
     bottom: 15%;
+    animation: colorShift 4s linear infinite;
     left: 50%;
     width:70%;
     height: 70%;
@@ -106,6 +107,11 @@ const StyledWrapper = styled.div`
     color: rgba(255, 255, 255, 0.7);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
+
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
 
   .title {
     opacity: 0;

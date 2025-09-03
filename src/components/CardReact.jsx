@@ -90,33 +90,40 @@ const StyledWrapper = styled.div`
     object-fit: contain;
   }
 
-  #prompt {
-    bottom: 15%;
-    left: 50%;
-    width:70%;
-    height: 70%;
-    transform: translateX(-50%);
-    z-index: 20;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    transition: 300ms ease-in-out;
-    position: absolute;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  @keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+  #prompt {
+  bottom: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  transform: translateX(-50%);
+  z-index: 20;
+  position: absolute;
+  transition: 300ms ease-in-out;
+  object-fit: contain;
+
+  /* animação */
+  animation: spin infinite 20s linear;
+}
 
   .title {
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    font-size: 28px;
+    font-size: 50px;
     font-weight: 800;
     letter-spacing: 4px;
     text-align: center;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 45%;
     background: linear-gradient(45deg, #00ffaa, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
