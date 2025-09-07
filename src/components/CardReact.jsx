@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Lottie from 'lottie-react';
+import react from '../assets/lotties/react.json';
 
-const CardReact = () => {
+const CardReact = ({ active = true }) => {
   return (
     <StyledWrapper>
       <div className="container noselect">
@@ -21,7 +23,11 @@ const CardReact = () => {
               <div className="cyber-lines">
                 <span /><span /><span /><span />
               </div>
-              <img id="prompt" src="./src/assets/react.png" alt="" />
+              <Lottie id="prompt"
+                animationData={react} loop={true}
+                autoPlay={active}
+              />
+              {/* <img id="prompt" src="./src/assets/react.png" alt="" /> */}
               {/* <p id="prompt">HOVER ME</p> */}
               <div className="title">React</div>
               <div className="glowing-elements">

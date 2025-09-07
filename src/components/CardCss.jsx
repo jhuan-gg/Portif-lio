@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Lottie from 'lottie-react';
+import css from '../assets/lotties/css.json';
 
-const CardCss = () => {
+const CardCss = ({ active = true }) => {
   return (
     <StyledWrapper>
       <div className="container noselect">
@@ -21,7 +23,11 @@ const CardCss = () => {
               <div className="cyber-lines">
                 <span /><span /><span /><span />
               </div>
-              <img id="prompt" src="./src/assets/css.png" alt="" />
+              <Lottie id="prompt"
+                animationData={css} loop={true}
+                autoPlay={active}
+              />
+              {/* <img id="prompt" src="./src/assets/css.png" alt="" /> */}
               {/* <p id="prompt">HOVER ME</p> */}
               <div className="title">CSS</div>
               <div className="glowing-elements">
@@ -92,7 +98,6 @@ const StyledWrapper = styled.div`
 
   #prompt {
     bottom: 15%;
-    animation: colorShift 4s linear infinite;
     left: 50%;
     width:70%;
     height: 70%;
@@ -107,11 +112,6 @@ const StyledWrapper = styled.div`
     color: rgba(255, 255, 255, 0.7);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
-
-@keyframes colorShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
 
   .title {
     opacity: 0;
