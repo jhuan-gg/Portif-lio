@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Lottie from 'lottie-react';
+import docker from '../assets/lotties/docker.json';
 
-const CardDocker = () => {
+const CardDocker = ({ active }) => {
   return (
     <StyledWrapper>
       <div className="container noselect">
@@ -21,6 +23,11 @@ const CardDocker = () => {
               <div className="cyber-lines">
                 <span /><span /><span /><span />
               </div>
+              <Lottie id="prompt"
+              animationData={docker} loop={true}
+              autoPlay={active}
+              />
+              {/*
               <img id="prompt" src="./src/assets/docker.png" alt="" />
               {/* <p id="prompt">HOVER ME</p> */}
               <div className="title">Docker</div>
@@ -111,12 +118,12 @@ const StyledWrapper = styled.div`
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    font-size: 28px;
+    font-size: 50px;
     font-weight: 800;
     letter-spacing: 4px;
     text-align: center;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 45%;
     background: linear-gradient(45deg, #00ffaa, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

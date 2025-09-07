@@ -118,12 +118,12 @@ const StyledWrapper = styled.div`
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: 800;
     letter-spacing: 4px;
     text-align: center;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 45%;
     background: linear-gradient(45deg, #00ffaa, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

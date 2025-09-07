@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Lottie from 'lottie-react';
+import Fire from '../assets/lotties/Fire.json';
 
-const CardFirebase = () => {
+const CardFirebase = ({ active }) => {
   return (
     <StyledWrapper>
       <div className="container noselect">
@@ -21,9 +23,13 @@ const CardFirebase = () => {
               <div className="cyber-lines">
                 <span /><span /><span /><span />
               </div>
-              <img id="prompt" src="./src/assets/firebase.png" alt="" />
+              {/* <img id="prompt" src="./src/assets/firebase.png" alt="" /> */}
               {/* <p id="prompt">HOVER ME</p> */}
               <div className="title">Firebase</div>
+              <Lottie id="prompt"
+              animationData={Fire} loop={true}
+              autoPlay={active}
+              />
               <div className="glowing-elements">
                 <div className="glow-1" />
                 <div className="glow-2" />
@@ -111,12 +117,12 @@ const StyledWrapper = styled.div`
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    font-size: 28px;
+    font-size: 50px;
     font-weight: 800;
     letter-spacing: 4px;
     text-align: center;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 45%;
     background: linear-gradient(45deg, #00ffaa, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

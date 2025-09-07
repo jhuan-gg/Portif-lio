@@ -77,9 +77,8 @@ function BlobsBackground({ count = 8 }) {
 
 
 function Experience() {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
 
-
-  
   return (
     <Section id="experience">
       <Content>
@@ -106,7 +105,7 @@ function Experience() {
         </ExperienceItem>
       </Content>
       <Background>
-        <BlobsBackground count={16} />
+        {!isMobile && <BlobsBackground count={16} />}
         <Gradient />
       </Background>
     </Section>

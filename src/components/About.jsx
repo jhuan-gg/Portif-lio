@@ -7,6 +7,7 @@ import { FaLinkedin, FaInstagramSquare } from "react-icons/fa";
 export default function About() {
   const titleRef = useRef(null)
   const canvasRef = useRef(null)
+  const isMobile = window.innerWidth <= 600;
 
   // animação de digitação
   useEffect(() => {
@@ -83,6 +84,7 @@ export default function About() {
 
   // fundo de partículas
   useEffect(() => {
+    if (isMobile) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let particles = [];
@@ -161,7 +163,7 @@ export default function About() {
 
   return (
     <Section id="about">
-      <Canvas ref={canvasRef} />
+      {!isMobile && <Canvas ref={canvasRef} />}
       <Content>
         <Left>
           <Title>
@@ -181,10 +183,10 @@ export default function About() {
                 <div className="circle"><span className="green box" /></div>
               </div>
               <div className="card__content">
-                <Subtitle>
+                <Subtitle className={isMobile ? 'mobile' : ''}>
                   Desenvolvedor <span>Full Stack</span>
                 </Subtitle>
-                <Description>
+                <Description className={isMobile ? 'mobile' : ''}>
                   <p>
                     Desenvolvedor Front-end especializado em React, com forte experiência em componentização de UI, estilização com Styled-Components e integração de bibliotecas de design como Material-UI (MUI). Hábil na construção de interfaces responsivas, componentes reutilizáveis, gerenciamento de estado e otimização de performance em aplicações SPA, aplicando boas práticas de desenvolvimento moderno e design modular.                  
                   </p>
@@ -235,6 +237,11 @@ const Content = styled.div`
   @media (max-width: 900px) {
     flex-direction: column;
     gap: 3rem;
+    padding: 2rem 1rem;
+  }
+  @media (max-width: 600px) {
+    padding: 1rem 0.5rem;
+    gap: 2rem;
   }
 `
 
@@ -244,6 +251,14 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: start;
   gap: 1rem;
+  width: 100%;
+  @media (max-width: 900px) {
+    align-items: center;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+  }
 `
 
 const Title = styled.span`
@@ -288,17 +303,33 @@ const Subtitle = styled.h2`
     font-weight: 600;
     margin-left: 0.3rem;
   }
+  &.mobile {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 `
 
 const Description = styled.p`
   font-family: 'Fira Mono', monospace;
   font-size: 1rem;
+  text-align: justify;
   line-height: 1.6;
   color: #fff;
   max-width: 600px;
+
+  p {
+  text-align: justify;
+  margin: 0.5rem;
+  }
   @media (max-width: 900px) {
     text-align: start;
     margin: 0 auto;
+  }
+  &.mobile {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.5rem 0 0 0;
+    max-width: 98vw;
   }
 `
 
@@ -322,6 +353,15 @@ const Right = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  @media (max-width: 900px) {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  @media (max-width: 600px) {
+    margin-top: 1rem;
+  }
 `
 
 const Avatar = styled.div`
@@ -336,11 +376,13 @@ const Avatar = styled.div`
     object-fit: cover;
     background: #fff;
     display: block;
-  }
-  @media (max-width: 600px) {
-    img {
-      width: 140px;
-      height: 140px;
+    @media (max-width: 900px) {
+      width: 200px;
+      height: 200px;
+    }
+    @media (max-width: 600px) {
+      width: 120px;
+      height: 120px;
     }
   }
 `
@@ -349,11 +391,28 @@ const StyledWrapper = styled.div`
   .card {
     width: 600px;
     height: 300px;
-    background: linear-gradient(0deg, #000, #272727);
+    background: #3e3e3e;
     border-radius: 8px;
     z-index: 1;
+    margin: 0 auto;
+    @media (max-width: 900px) {
+      width: 90vw;
+      height: 220px;
+    }
+    @media (max-width: 600px) {
+      width: 98vw;
+      height: auto;
+      min-height: 180px;
+      padding: 1rem 0.5rem;
+      margin: 1rem auto 0 auto;
+      box-sizing: border-box;
+    }
   }
-
+  .card__content {
+    @media (max-width: 600px) {
+      padding: 0.5rem 0.2rem;
+    }
+  }
   .tools {
     display: flex;
     align-items: center;

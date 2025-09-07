@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { gsap } from 'gsap'
 import Loader from './Loader'
+import { useInView } from 'react-intersection-observer';
+
 
 
 const float = keyframes`
@@ -69,45 +71,82 @@ function BlobsBackground({ count = 8 }) {
 // Hero Section
 // ========================
 export default function Hero() {
+  const [showBlobs, setShowBlobs] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowBlobs(window.innerWidth > 600);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleScroll = (e) => {
     e.preventDefault()
     const element = document.querySelector('#about')
     if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.5 } });
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false,
+  })
 
-    tl.to('.loader-wrapper', { scale: 1, opacity: 1, duration: 1, ease: 'elastic.out(1, 0.3)' })
-      .to('.main-text', { y: 0, opacity: 1, stagger: 0.3 })
-      .to('.highlight-text', { y: 0, opacity: 1, duration: 1.5, ease: 'elastic.out(1, 0.3)' }, '-=1')
-      .from('.hero-circle', { scale: 0.5, opacity: 0, duration: 2, ease: 'elastic.out(1, 0.3)' }, '-=1.5')
-      .to('.scroll-indicator', { y: 0, opacity: 1, duration: 1 }, '-=1')
-  }, [])
+
+useEffect(() => {
+    if (inView) {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.5 } })
+
+      tl.to('.loader-wrapper', {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: 'elastic.out(1, 0.3)',
+      })
+        .to('.main-text', { y: 0, opacity: 1, stagger: 0.3 })
+        .to('.highlight-text', {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: 'elastic.out(1, 0.3)',
+        }, '-=1')
+        .from('.hero-circle', {
+          scale: 0.5,
+          opacity: 0,
+          duration: 2,
+          ease: 'elastic.out(1, 0.3)',
+        }, '-=1.5')
+        .to('.scroll-indicator', { y: 0, opacity: 1, duration: 1 }, '-=1')
+    }
+  }, [inView])
+
+
 
   return (
-    <Section id="hero">
+    <Section ref={ref} id="hero">
       <Content>
         <Left>
           <Title>
             <MainText className="main-text">Vamos codar</MainText>
             <HighlightText className="highlight-text">suas</HighlightText>
             <MainText className="main-text">ideias?</MainText>
+            <br />
+            <ScrollIndicator href="#about" onClick={handleScroll}>
+                <StyledWrapper>
+                  <button type="button" className="btn">
+                      <span>Me conheça melhor</span>
+                      <div id="container-stars">
+                      <div id="stars" />
+                      </div>
+                      <div id="glow">
+                      <div className="circle" />
+                      <div className="circle" />
+                      </div>
+                  </button>
+                </StyledWrapper>
+            </ScrollIndicator>    
           </Title>
-          <ScrollIndicator href="#about" onClick={handleScroll}>
-              <StyledWrapper>
-                <button type="button" className="btn">
-                    <span>Me conheça melhor</span>
-                    <div id="container-stars">
-                    <div id="stars" />
-                    </div>
-                    <div id="glow">
-                    <div className="circle" />
-                    <div className="circle" />
-                    </div>
-                </button>
-              </StyledWrapper>
-          </ScrollIndicator>    
           {/* <ScrollIndicator href="#about" onClick={handleScroll}>
             <span>Me conheça melhor</span>
             <i className="fa-solid fa-arrow-down"></i>
@@ -121,7 +160,7 @@ export default function Hero() {
       </Content>
 
       <Background>
-        <BlobsBackground count={16} />
+        {inView && showBlobs && <BlobsBackground count={16} />}
         <Gradient />
       </Background>
     </Section>
@@ -139,6 +178,7 @@ const Section = styled.section`
   color: #fff;
   position: relative;
   overflow: hidden;
+  
 `
 
 const Content = styled.div`
@@ -153,10 +193,11 @@ const Content = styled.div`
   position: relative;
   z-index: 2;
   @media (max-width: 900px) {
+    top: -3rem;
+    display: flex;
+    justify-content: start;
     flex-direction: column;
-    text-align: center;
-    gap: 3rem;
-  }
+    text-align: center;  }
 `
 
 const Left = styled.div`
@@ -165,13 +206,21 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 4rem;
+  @media (min-width: 600px) {
+    gap: 2rem;
+    top: 0;
+  }
 `
 
 const Title = styled.h1`
   font-size: 4.5rem;
   font-weight: 800;
   line-height: 1.1;
-  @media (max-width: 600px) { font-size: 2.5rem; }
+  @media (max-width: 600px) { 
+  font-size: 2.5rem;
+  flex-direction: row;  
+  margin-bottom: 10rem;
+  }
 `
 
 const MainText = styled.span`
@@ -181,7 +230,7 @@ const MainText = styled.span`
   line-height: 1.2;
   font-weight: 800;
   opacity: 0;
-  @media (max-width: 600px) { font-size: 2.5rem; }
+  @media (max-width: 600px) { font-size: 3rem; }
 `
 
 const HighlightText = styled.span`
@@ -193,7 +242,7 @@ const HighlightText = styled.span`
   font-size: 6rem;
   margin: 0.5rem 0;
   opacity: 0;
-  @media (max-width: 600px) { font-size: 3.5rem; }
+  @media (max-width: 600px) { font-size: 4rem; }
 `
 
 const Right = styled.div`
@@ -228,16 +277,30 @@ const LoaderWrapper = styled.div`
   transform: translate(-50%, -50%) scale(4);
   opacity: 0;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (max-width: 1200px) { left: 60%; }
-  @media (max-width: 900px) { left: 50%; transform: translate(-50%, -50%) scale(3); }
-  @media (max-width: 600px) { transform: translate(-50%, -50%) scale(2); }
+  @media (max-width: 900px) { left: 50%; transform: translate(-50%, -50%) scale(2.2); }
+  @media (max-width: 600px) {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 1.5rem auto 0 auto;
+    width: 100%;
+    max-width: 120px;
+    scale: 0.7;
+    text-align: center;
+  }
 `
 
 const ScrollIndicator = styled.a`
   display: flex;
   flex-direction: column;
   align-items: start;
-  borderRadius: 50%;
+  border-radius: 50%;
+  margin-top: 2rem;
   gap: 1rem;
   color: #fff;
   text-decoration: none;
@@ -251,6 +314,7 @@ const ScrollIndicator = styled.a`
     40% { transform: translateY(-10px); }
     60% { transform: translateY(-5px); }
   }
+    
 `
 
 const Background = styled.div`
@@ -266,13 +330,30 @@ const Gradient = styled.div`
   background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.1) 0%, rgba(15, 23, 42, 0) 50%);
 `
 const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  @media (max-width: 600px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+      @media (max-width: 900px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
   .btn {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 13rem;
-    overflow: hidden;
     height: 3rem;
+    font-size: 1rem;
+    overflow: hidden;
     background-size: 300% 300%;
     cursor: pointer;
     backdrop-filter: blur(1rem);
@@ -304,10 +385,12 @@ const StyledWrapper = styled.div`
   }
 
   span {
-    z-index: 2;
     font-size: 18px;
     color: #ffffff;
     text-shadow: 0 0 4px white;
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
   }
 
   #glow {

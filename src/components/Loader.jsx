@@ -17,13 +17,34 @@ const Loader = () => {
 }
 
 const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
   .spinner {
     width: 200px;
     height: 200px;
+    margin: 0 auto;
     --clr: #2563eb;
     --clr-alpha: rgba(37, 99, 235, 0.1);
     animation: spinner 3s infinite ease;
     transform-style: preserve-3d;
+
+    @media (max-width: 900px) {
+      width: 120px;
+      height: 120px;
+    }
+
+    @media (max-width: 600px) {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .spinner > div {

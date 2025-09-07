@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import FibrosLogo from '../assets/Fibros-Photoroom.png';
 
 const Card = () => {
   return (
     <StyledWrapper>
       <div className="card">
         <div className="icon">
+          <img src={FibrosLogo} alt="Fibros Logo" style={{ width: 56, height: 56, borderRadius: '16px', marginBottom: '0.5em' }} />
         </div>
         <strong> Fibros </strong>
-        <div className="card__body">Sistema web-mobile para gestão de Caixas de Terminação Óptica e mapas de fibra, com React, Firebase e TypeScript, focado em provedores de internet.</div>
-        <span>Ver Projeto</span>
+        <div className="card__body">Sistema web-mobile para gestão de Caixas de Terminação Óptica e mapas de fibra, focado em provedores de internet.</div>
+        <span><a href="https://github.com/jhuan-gg/Fibros.git" target='_blank'>Ver Projeto</a></span>
       </div>
     </StyledWrapper>
   );
@@ -18,11 +20,18 @@ const Card = () => {
 const StyledWrapper = styled.div`
   .card {
     --bg: #f7f7f8;
-    --hover-bg: #a7aff6ff;
-    --hover-text: #e50087;
-    max-width: 23ch;
+    --hover-bg: #0000007c;
+    --hover-text: #5339e4ff;
+    background: rgba(0, 0, 0, 0.18); /* azul fosco/transparente */
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 220px;
+    height: 220px;
+    max-width: none;
+    min-width: 220px;
+    min-height: 220px;
+    /* Mantém o card quadrado independente do conteúdo */
     text-align: center;
-    background: var(--bg);
     padding: 1.5em;
     padding-block: 1.8em;
     border-radius: 5px;
@@ -36,23 +45,31 @@ const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1em;
-    color: black;
   }
 
-  .card__body {
-    color: #464853;
-    line-height: 1.5em;
-    font-size: 1em;
-  }
-
-  .card > :not(span) {
-    transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1);
+  .icon img {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    margin-bottom: 0.5em;
   }
 
   .card > strong {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     letter-spacing: -0.035em;
+    margin-bottom: 0.5em;
+  }
+
+  .card__body {
+    color: #fff;
+    line-height: 1.4em;
+    font-size: 0.95em;
+    margin-bottom: 0.5em;
+  }
+
+  .card > :not(span) {
+    transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1);
   }
 
   .card span {
@@ -68,6 +85,7 @@ const StyledWrapper = styled.div`
     font-weight: bold;
     top: 100%;
     transition: all 0.3s cubic-bezier(0.6, 0.4, 0, 1);
+    font-size: 1em;
   }
 
   .card:hover span {

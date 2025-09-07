@@ -1,7 +1,8 @@
 import React from 'react';
+import Lottie from 'lottie-react';
 import styled from 'styled-components';
-
-const CardGit = () => {
+import git from '../assets/lotties/git.json';
+const CardGit = ({ active }) => {
   return (
     <StyledWrapper>
       <div className="container noselect">
@@ -21,7 +22,11 @@ const CardGit = () => {
               <div className="cyber-lines">
                 <span /><span /><span /><span />
               </div>
-              <img id="prompt" src="./src/assets/git.png" alt="" />
+              <Lottie id="prompt"
+              animationData={git} loop={true}
+              autoPlay={active}
+              />
+              {/* <img id="prompt" src="./src/assets/git.png" alt="" /> */}
               {/* <p id="prompt">HOVER ME</p> */}
               <div className="title">Git</div>
               <div className="glowing-elements">
@@ -111,12 +116,12 @@ const StyledWrapper = styled.div`
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    font-size: 28px;
+    font-size: 50px;
     font-weight: 800;
     letter-spacing: 4px;
     text-align: center;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 45%;
     background: linear-gradient(45deg, #00ffaa, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

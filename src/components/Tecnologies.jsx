@@ -8,11 +8,23 @@ import CardGit from './CardGit';
 import CardDocker from './CardDocker';
 import CardNode from './CardeNode';
 import CardTypescript from './CardTypescript';
+import { useInView } from "react-intersection-observer";
 
 function Tecnologies() {
   const canvasRef = useRef(null)
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
+
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false,
+  });
 
   useEffect(() => {
+    console.log("Section está visível?", inView);
+  }, [inView]);
+
+  useEffect(() => {
+    if (isMobile) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let particles = [];
@@ -94,22 +106,22 @@ function Tecnologies() {
   }, []);
 
   return (
-    <Section id="tecnologies">
-      <Canvas ref={canvasRef} />
+    <Section ref={ref} id="tecnologies">
+      {!isMobile && <Canvas ref={canvasRef} />}
       <Content>
         <Title>
           <MainText className="main-text">Minha</MainText>
           <HighlightText className="highlight-text">Tool Box</HighlightText>
         </Title>
-        <Categories>
-          <CardReact />
-          <CardCss />
-          <CardJs />
-          <CardFirebase />
-          <CardGit />
-          <CardDocker />
-          <CardNode />
-          <CardTypescript />
+        <Categories >
+          <CardReact active={inView}/>
+          <CardCss active={inView}/>
+          <CardJs active={inView}/>
+          <CardFirebase active={inView}/>
+          <CardGit active={inView}/>
+          <CardDocker active={inView}/>
+          <CardNode active={inView}/>
+          <CardTypescript active={inView}/>
         </Categories>
       </Content>
     </Section>
@@ -151,6 +163,18 @@ const Content = styled.div`
     color: #1a1a1a;
     margin-bottom: 3rem;
   }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+  @media (max-width: 600px) {
+    padding: 1rem 0.5rem;
+    gap: 1.5rem;
+  }
 `
 
 const Categories = styled.div`
@@ -158,6 +182,15 @@ const Categories = styled.div`
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: end;
+  @media (max-width: 900px) {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 `
 
 const Category = styled.div`
@@ -166,6 +199,14 @@ const Category = styled.div`
   border-radius: 12px;
   min-width: 220px;
   flex: 1 1 220px;
+  @media (max-width: 900px) {
+    min-width: 180px;
+    padding: 1rem;
+  }
+  @media (max-width: 600px) {
+    min-width: 140px;
+    padding: 0.7rem;
+  }
 `
 
 const CategoryTitle = styled.h3`
@@ -222,7 +263,7 @@ const Title = styled.h2`
   line-height: 1.1;
   margin-bottom: 2rem;
 
-  @media (max-width: 600px) { font-size: 2.5rem; }
+  @media (max-width: 600px) { font-size: 2.5rem; display: flex; flex-direction: column; align-items: center; margin-top: 5rem; }
 `
 
 

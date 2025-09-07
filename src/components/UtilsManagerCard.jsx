@@ -1,18 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import Utils from '../assets/utils.png';
 
 const UtilsManagerCard = () => {
   return (
     <StyledWrapper>
       <div className="card">
         <div className="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24">
-            <path d="M11.984 16.815c2.596 0 4.706-2.111 4.706-4.707 0-1.409-.623-2.674-1.606-3.538-.346-.303-.735-.556-1.158-.748-.593-.27-1.249-.421-1.941-.421s-1.349.151-1.941.421c-.424.194-.814.447-1.158.749-.985.864-1.608 2.129-1.608 3.538 0 2.595 2.112 4.706 4.706 4.706zm.016-8.184c1.921 0 3.479 1.557 3.479 3.478 0 1.921-1.558 3.479-3.479 3.479s-3.479-1.557-3.479-3.479c0-1.921 1.558-3.478 3.479-3.478zm5.223.369h6.777v10.278c0 2.608-2.114 4.722-4.722 4.722h-14.493c-2.608 0-4.785-2.114-4.785-4.722v-10.278h6.747c-.544.913-.872 1.969-.872 3.109 0 3.374 2.735 6.109 6.109 6.109s6.109-2.735 6.109-6.109c.001-1.14-.327-2.196-.87-3.109zm2.055-9h-12.278v5h-1v-5h-1v5h-1v-4.923c-.346.057-.682.143-1 .27v4.653h-1v-4.102c-1.202.857-2 2.246-2 3.824v3.278h7.473c1.167-1.282 2.798-2 4.511-2 1.722 0 3.351.725 4.511 2h7.505v-3.278c0-2.608-2.114-4.722-4.722-4.722zm2.722 5.265c0 .406-.333.735-.745.735h-2.511c-.411 0-.744-.329-.744-.735v-2.53c0-.406.333-.735.744-.735h2.511c.412 0 .745.329.745.735v2.53z" />
-          </svg>
+            <img src={Utils} alt="Ultis Manager Logo" style={{ width: 56, height: 56, borderRadius: '16px', marginBottom: '0.5em' }} />
         </div>
         <strong> Ultis Manager </strong>
-        <div className="card__body">Aplicativo móvel multiplataforma para gestão empresarial de Caixas de terminação óptica, usando React Native, Expo, Firebase e Mapbox.</div>
-        <span>Ver Projeto</span>
+        <div className="card__body">Aplicativo móvel multiplataforma para gestão empresarial de Caixas de terminação óptica.</div>
+        <span><a href="https://github.com/jhuan-gg/UtilsManager.git" target='_blank'>Ver Projeto</a></span>
       </div>
     </StyledWrapper>
   );
@@ -21,11 +20,18 @@ const UtilsManagerCard = () => {
 const StyledWrapper = styled.div`
   .card {
     --bg: #f7f7f8;
-    --hover-bg: #a7aff6ff;
-    --hover-text: #e50087;
-    max-width: 23ch;
+    --hover-bg: #0000007c;
+    --hover-text: #5339e4ff;
+    background: rgba(0, 0, 0, 0.18); /* azul fosco/transparente */
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 220px;
+    height: 220px;
+    max-width: none;
+    min-width: 220px;
+    min-height: 220px;
+    /* Mantém o card quadrado independente do conteúdo */
     text-align: center;
-    background: var(--bg);
     padding: 1.5em;
     padding-block: 1.8em;
     border-radius: 5px;
@@ -39,11 +45,10 @@ const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1em;
-    color: black;
   }
 
   .card__body {
-    color: #464853;
+    color: #fff;
     line-height: 1.5em;
     font-size: 1em;
   }

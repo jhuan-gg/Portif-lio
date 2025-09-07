@@ -1,12 +1,71 @@
-# React + Vite
+<div align="center">
+  <img src="src/assets/react.svg" width="80" alt="React Logo" />
+  <img src="src/assets/vite.svg" width="80" alt="Vite Logo" />
+  <img src="src/assets/typescript.png" width="80" alt="TypeScript Logo" />
+  <img src="src/assets/docker.png" width="80" alt="Docker Logo" />
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Portfólio | Jhuan Gabriel
 
-Currently, two official plugins are available:
+🚀 Projeto moderno de portfólio pessoal desenvolvido com **React + Vite**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Preview
 
-## Expanding the ESLint configuration
+<div align="center">
+  <img src="public/eu2.jpg" width="220" style="border-radius: 50%;" alt="Jhuan Gabriel" />
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Veja online: [https://seu-link-deploy.com](https://seu-link-deploy.com)
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- React
+- Vite
+- Styled-Components
+- GSAP (animações)
+- Swiper (carrossel)
+- Tailwind (configuração)
+- Docker (containerização)
+- ESLint
+
+
+---
+
+## 📱 Responsividade
+
+O portfólio é totalmente responsivo, com animações e efeitos adaptados para mobile e desktop.
+
+---
+
+## 🖼️ Estrutura
+
+- `src/components`: Componentes reutilizáveis (cards, loader, header, etc)
+- `src/assets`: Imagens, ícones e animações
+- `public`: Arquivos estáticos
+
+---
+
+## 💡 Funcionalidades
+
+- Sidebar animada no mobile
+- Loader customizado
+- Cards de tecnologias com animações
+- Formulário de contato estilizado
+- Blobs animados no background (desktop)
+
+---
+
+## 👨‍💻 Autor
+
+**Jhuan Gabriel**
+
+- [LinkedIn](https://www.linkedin.com/in/jhuan-gabriel-nascimento-rocha)
+- [GitHub](https://github.com/jhuan-gg)
+
+---
+
+<div align="center">
+  <sub>Feito com ❤️ por Jhuan Gabriel</sub>
+</div>

@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Lottie from 'lottie-react';
+import typescript from '../assets/lotties/type.json';
 
-const CardTypescript = () => {
+const CardTypescript = ({ active }) => {
   return (
     <StyledWrapper>
       <div className="container noselect">
@@ -21,7 +23,11 @@ const CardTypescript = () => {
               <div className="cyber-lines">
                 <span /><span /><span /><span />
               </div>
-              <img id="prompt" src="./src/assets/typescript.png" alt="" />
+              <Lottie id="prompt"
+              animationData={typescript} loop={true}
+              autoPlay={active}
+              />
+              {/* <img id="prompt" src="./src/assets/typescript.png" alt="" /> */}
               {/* <p id="prompt">HOVER ME</p> */}
               <div className="title">Typescript</div>
               <div className="glowing-elements">
@@ -111,12 +117,12 @@ const StyledWrapper = styled.div`
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: 800;
     letter-spacing: 4px;
     text-align: center;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 45%;
     background: linear-gradient(45deg, #00ffaa, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -125,7 +131,6 @@ const StyledWrapper = styled.div`
       0 0 10px rgba(92, 103, 255, 0.5),
       0 0 20px rgba(92, 103, 255, 0.3);
   }
-
   .subtitle {
     position: absolute;
     bottom: 40px;
