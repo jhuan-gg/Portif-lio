@@ -89,10 +89,10 @@ function Experience() {
         </Title>
         <ExperienceItem>
             <Swiper
-              cssMode={true}
+              cssMode={false}
               navigation={true}
               pagination={false}
-              mousewheel={true}
+              mousewheel={false}
               keyboard={true}
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
               className="mySwiper"

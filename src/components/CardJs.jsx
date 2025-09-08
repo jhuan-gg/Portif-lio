@@ -65,6 +65,11 @@ const StyledWrapper = styled.div`
       height: 174px;
     }
 
+    @media (max-width: 600px) {
+      width: 300px;
+      height: 364px;
+    }
+
   .container:active {
     width: 180px;
     height: 245px;
@@ -141,6 +146,10 @@ const StyledWrapper = styled.div`
       0 0 20px rgba(92, 103, 255, 0.3);
           @media (max-width: 1400px) {
     font-size: 20px;
+
+    }
+            @media (max-width: 600px) {
+    font-size: 50px;
 
     }
   }
