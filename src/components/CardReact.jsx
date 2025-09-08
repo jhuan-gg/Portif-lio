@@ -60,7 +60,10 @@ const StyledWrapper = styled.div`
     width: 190px;
     height: 254px;
     transition: 200ms;
-  }
+    @media (max-width: 1400px) {
+      width: 110px;
+      height: 174px;
+    }
 
   .container:active {
     width: 180px;
@@ -106,18 +109,20 @@ const StyledWrapper = styled.div`
 }
 
   #prompt {
-  bottom: 15%;
-  left: 15%;
-  width: 70%;
-  height: 70%;
-  transform: translateX(-50%);
-  z-index: 20;
-  position: absolute;
-  transition: 300ms ease-in-out;
-  object-fit: contain;
-
-  /* animação */
-  animation: spin infinite 20s linear;
+    bottom: 15%;
+    left: 50%;
+    width:70%;
+    height: 70%;
+    transform: translateX(-50%);
+    z-index: 20;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: 300ms ease-in-out;
+    position: absolute;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
   .title {
@@ -137,6 +142,10 @@ const StyledWrapper = styled.div`
     text-shadow:
       0 0 10px rgba(92, 103, 255, 0.5),
       0 0 20px rgba(92, 103, 255, 0.3);
+          @media (max-width: 1400px) {
+    font-size: 20px;
+
+    }
   }
 
   .subtitle {

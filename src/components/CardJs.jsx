@@ -60,7 +60,10 @@ const StyledWrapper = styled.div`
     width: 190px;
     height: 254px;
     transition: 200ms;
-  }
+    @media (max-width: 1400px) {
+      width: 110px;
+      height: 174px;
+    }
 
   .container:active {
     width: 180px;
@@ -98,8 +101,7 @@ const StyledWrapper = styled.div`
 
   #prompt {
     bottom: 15%;
-    animation: wiggle 1s ease-in-out infinite;
-    left: 15%;
+    left: 50%;
     width:70%;
     height: 70%;
     transform: translateX(-50%);
@@ -137,6 +139,10 @@ const StyledWrapper = styled.div`
     text-shadow:
       0 0 10px rgba(92, 103, 255, 0.5),
       0 0 20px rgba(92, 103, 255, 0.3);
+          @media (max-width: 1400px) {
+    font-size: 20px;
+
+    }
   }
 
   .subtitle {

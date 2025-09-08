@@ -193,21 +193,7 @@ const Categories = styled.div`
   }
 `
 
-const Category = styled.div`
-  background: #f9fafb;
-  padding: 1.5rem;
-  border-radius: 12px;
-  min-width: 220px;
-  flex: 1 1 220px;
-  @media (max-width: 900px) {
-    min-width: 180px;
-    padding: 1rem;
-  }
-  @media (max-width: 600px) {
-    min-width: 140px;
-    padding: 0.7rem;
-  }
-`
+
 
 const CategoryTitle = styled.h3`
   font-size: 1.25rem;

@@ -59,12 +59,10 @@ const StyledWrapper = styled.div`
     width: 190px;
     height: 254px;
     transition: 200ms;
-  }
-
-  .container:active {
-    width: 180px;
-    height: 245px;
-  }
+    @media (max-width: 1400px) {
+      width: 110px;
+      height: 174px;
+    }
 
   #card {
     position: absolute;
@@ -81,6 +79,7 @@ const StyledWrapper = styled.div`
     box-shadow:
       0 0 20px rgba(0, 0, 0, 0.3),
       inset 0 0 20px rgba(0, 0, 0, 0.2);
+
   }
 
   .card-content {
@@ -129,6 +128,10 @@ const StyledWrapper = styled.div`
     text-shadow:
       0 0 10px rgba(92, 103, 255, 0.5),
       0 0 20px rgba(92, 103, 255, 0.3);
+          @media (max-width: 1400px) {
+    font-size: 20px;
+
+    }
   }
 
   .subtitle {
