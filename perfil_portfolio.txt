@@ -1,0 +1,65 @@
+==========================================================
+                PERFIL PROFISSIONAL / CURRÍCULO
+==========================================================
+
+NOME: Jhuan Gabriel
+TÍTULO: Desenvolvedor Full Stack
+TAGLINE: "Vamos codar suas ideias?"
+
+----------------------------------------------------------
+SOBRE MIM
+----------------------------------------------------------
+Desenvolvedor Front-end especializado em React, com forte experiência em 
+componentização de UI, estilização com Styled-Components e integração de 
+bibliotecas de design como Material-UI (MUI). Hábil na construção de 
+interfaces responsivas, componentes reutilizáveis, gerenciamento de estado 
+e otimização de performance em aplicações SPA, aplicando boas práticas 
+de desenvolvimento moderno e design modular.
+
+----------------------------------------------------------
+PROJETOS E EXPERIÊNCIA
+----------------------------------------------------------
+
+1. FIBROS
+   Descrição: Sistema web-mobile para gestão de Caixas de Terminação Óptica 
+   e mapas de fibra, focado em provedores de internet.
+   GitHub: https://github.com/jhuan-gg/Fibros.git
+
+2. ROTA 3.0
+   Descrição: Aplicação web em Node.js para envio e agendamento de rotas 
+   via CSV, com automação via WhatsApp.
+   GitHub: https://github.com/jhuan-gg/ROTA-3.0
+
+3. CHECK!
+   Descrição: App web para gestão e análise de checklists profissionais, 
+   com React, Firebase e dashboards interativos.
+   GitHub: https://github.com/jhuan-gg/chk-lst.git
+
+4. ULTIS MANAGER
+   Descrição: Aplicativo móvel multiplataforma para gestão empresarial 
+   de Caixas de terminação óptica.
+   GitHub: https://github.com/jhuan-gg/UtilsManager.git
+
+----------------------------------------------------------
+TECNOLOGIAS E COMPETÊNCIAS
+----------------------------------------------------------
+
+- Frontend: React, Styled-Components, Material-UI (MUI), HTML5, CSS3.
+- Linguagens: JavaScript (ES6+), TypeScript.
+- Backend & Ferramentas: Node.js, Firebase, Docker.
+- Versionamento & Outros: Git, GitHub, Componentização de UI, 
+  Gerenciamento de Estado, Performance SPA.
+
+----------------------------------------------------------
+CONTATO E REDES SOCIAIS
+----------------------------------------------------------
+
+- Email: gjhuan672@gmail.com
+- Telefone: +55 95 98129-4351
+- LinkedIn: https://www.linkedin.com/in/jhuan-gabriel-nascimento-rocha
+- GitHub: https://github.com/jhuan-gg
+- Instagram: https://www.instagram.com/jhuan.zin
+
+==========================================================
+                GERADO AUTOMATICAMENTE
+==========================================================
